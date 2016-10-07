@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+</head>
+<body>
+	<table align="center">
+		<tr>
+			<td>
+				<form>
+						Digite el numero de filas &nbsp;&nbsp;&nbsp; <input type="text" id="filas">	<br>			
+						Digite el numero de columnas &nbsp;&nbsp;<input type="text" id="columnas"> <br>
+						<input type="button" value="Mostrar tabla"  onclick="Calcular()">
+				</form>
+
+			</td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+		
+		function Calcular()
+		{
+			var filas = document.getElementById('filas').value;
+			var columnas = document.getElementById('columnas').value;
+			var resultado =0;
+
+			filas = parseFloat(filas);
+			columnas = parseFloat(columnas);
+			 var col="";
+			 var fil="";
+
+
+			for(var i = 0; i <= filas -1; i++)
+			{
+				for(var j = 0; j <= columnas -1 ;j++)
+				{
+
+					if(j %  2 == 0)
+					{
+						if(i%2 == 0)
+						{
+							col = col + "<td width = '80px' height='20px'  bgcolor=''></td>";
+						}
+						else
+						{
+							col = col + "<td width = '80px' height='20px'  bgcolor='#000000'></td>";
+						}
+						
+					}
+					else
+					{
+						if(i%2 != 0)
+						{
+							col = col + "<td width = '80px' height='20px'  bgcolor=''></td>";
+						}
+						else
+						{
+							col = col + "<td width = '80px' height='20px'  bgcolor='#000000'></td>";
+						}
+					}			
+				}
+
+				fil = fil + "<tr> " + col + "</tr>";
+				col="";
+			}
+				document.getElementById('Dv_Mostrar').innerHTML= fil;
+		}
+	</script>
+	<table id="Dv_Mostrar" border="1">
+		
+	</table>
+
+</body>
+</html>
